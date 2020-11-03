@@ -3,16 +3,16 @@
 
 function getResult(a,b,c){
     let result = [];
-	let d = Math.pow(b, 2) - (4 * a * c);
+    let d = Math.pow(b, 2) - (4 * a * c);
 
-	if (d > 0) {
+    if (d > 0) {
         result.push( (-b + Math.sqrt(d)) / (2 * a), (-b - Math.sqrt(d)) / (2 * a) );
         // result[0] = (-b + Math.sqrt(d)) / (2 * a);
         // result[1] = (-b - Math.sqrt(d)) / (2 * a);
     } else if (d === 0) {
-		result.push(-b / (2 * a));
-		// result = [- b / (2 * a)];
-	} 
+        result.push(-b / (2 * a));
+        // result = [- b / (2 * a)];
+    } 
     return result;
 }
 
@@ -38,22 +38,31 @@ function getAverageMark(marks){
     }
 
     averageMark = totalMark / marks.length;
-
     return averageMark;
 }
 
 
 
-function askDrink(name, dateOfBirthday) {
-    let personsAge = dateOfBirthday.getFullYear();
-    let currentYear = new Date().getFullYear();
+ function askDrink(name, dateOfBirthday) {
+     if (new Date().getFullYear() - dateOfBirthday.getFullYear() >= 18) {
+         return (`Не желаете ли олд-фэшн, ${name}?`);
+     }
+     else {
+         return (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+     }
+ }
 
-    if ((currentYear - personsAge) >= 18) {
-        return `Не желаете ли олд-фэшн, ${name}?`
-    } else {
-        return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
-    }
-}
+
+// function askDrink(name, dateOfBirthday) {
+//     let personsAge = dateOfBirthday.getFullYear();
+//     let currentYear = new Date().getFullYear();
+
+//     if ((currentYear - personsAge) >= 18) {
+//         return `Не желаете ли олд-фэшн, ${name}?`
+//     } else {
+//         return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+//     }
+// }
 
 
 
