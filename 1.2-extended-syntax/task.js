@@ -1,4 +1,4 @@
-"use script";
+'use strict';
 
 
 function getResult(a,b,c){
